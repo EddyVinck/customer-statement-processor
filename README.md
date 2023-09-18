@@ -56,19 +56,13 @@ npm test
 
 ### End-to-end tests
 
-First, make sure your development server is running on http://localhost:3000:
-
-```bash
-npm run dev
-```
-
-And then run:
+To run the tests in headless mode, run:
 
 ```bash
 npm run e2e
 ```
 
-And to open the browser for the end-to-end tests:
+And to open the browser for the end-to-end tests, run:
 
 ```bash
 npm run e2e:ui
