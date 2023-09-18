@@ -1,0 +1,21 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["next/core-web-vitals", "prettier"],
+  "overrides": [
+    {
+      "env": {
+        "node": true
+      },
+      "files": ["postcss.config.{js,cjs}"],
+      "parserOptions": {
+        "sourceType": "script"
+      }
+    }
+  ],
+  "rules": {
+    "@typescript-eslint/consistent-type-definitions": "off"
+  }
+}

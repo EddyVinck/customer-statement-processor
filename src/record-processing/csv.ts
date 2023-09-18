@@ -2,12 +2,12 @@ import csv from "csv-parser";
 import {
   type ParsedStatementRecord,
   unparsedCsvStatementRecord,
-} from "../types";
+} from "./types";
 
 export const parseCsv = async (
   data: string
 ): Promise<ParsedStatementRecord[]> => {
-  return await new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const records: ParsedStatementRecord[] = [];
 
     const stream = csv({ separator: "," })

@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+// This is to validate the data xml2js returns
 export const unparsedXmlStatementRecord = z.object({
   $: z.object({
     reference: z.string().min(1),
@@ -11,6 +12,7 @@ export const unparsedXmlStatementRecord = z.object({
   endBalance: z.array(z.string().min(1)).length(1),
 });
 
+// This is to validate the data csv-parser returns
 export const unparsedCsvStatementRecord = z.object({
   Reference: z.string().min(1),
   "Account Number": z.string().min(18),
@@ -20,6 +22,7 @@ export const unparsedCsvStatementRecord = z.object({
   "End Balance": z.string().min(1),
 });
 
+// The normalized structure of a parsed statement record used in the application
 export const parsedStatementRecord = z.object({
   reference: z.string().min(1),
   accountNumber: z.string().min(18),
@@ -30,3 +33,8 @@ export const parsedStatementRecord = z.object({
 });
 
 export type ParsedStatementRecord = z.infer<typeof parsedStatementRecord>;
+
+export type RecordReference = Pick<
+  ParsedStatementRecord,
+  "reference" | "description"
+>;

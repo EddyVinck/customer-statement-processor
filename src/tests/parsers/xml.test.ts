@@ -1,8 +1,8 @@
 import { describe, expect, test } from "vitest";
-import { parseXml } from "../../parsers/xml";
+import { parseXml } from "../../record-processing/xml";
 import fs from "node:fs";
 import path from "node:path";
-import { type ParsedStatementRecord } from "../../types";
+import { type ParsedStatementRecord } from "../../record-processing/types";
 
 describe("XML processing", () => {
   test("The data is parsed as expected", async () => {

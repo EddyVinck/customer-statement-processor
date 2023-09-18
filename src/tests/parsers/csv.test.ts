@@ -1,16 +1,16 @@
 import { describe, expect, test } from "vitest";
-import { parseCsv } from "../../parsers/csv";
+import { parseCsv } from "../../record-processing/csv";
 import fs from "node:fs";
 import path from "node:path";
-import { type ParsedStatementRecord } from "../../types";
+import { type ParsedStatementRecord } from "../../record-processing/types";
 
 describe("CSV processing", () => {
   test("The data is parsed as expected", async () => {
-    const testXml = fs.readFileSync(
+    const testCsv = fs.readFileSync(
       path.join(__dirname, "../fixtures/records.csv"),
       "utf8"
     );
-    const recordsFromCsv = await parseCsv(testXml);
+    const recordsFromCsv = await parseCsv(testCsv);
     expect(recordsFromCsv.length).toBe(10);
 
     expect(recordsFromCsv[0]).toMatchObject({

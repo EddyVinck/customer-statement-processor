@@ -2,7 +2,7 @@ import { parseString } from "xml2js";
 import {
   unparsedXmlStatementRecord,
   type ParsedStatementRecord,
-} from "../types";
+} from "./types";
 import { z } from "zod";
 
 const unparsedStatementRecordsFromXml = z.object({
@@ -14,7 +14,7 @@ const unparsedStatementRecordsFromXml = z.object({
 export const parseXml = async (
   data: string
 ): Promise<ParsedStatementRecord[]> => {
-  return await new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     parseString(data, (err, result) => {
       if (err instanceof Error) {
         reject(err);
