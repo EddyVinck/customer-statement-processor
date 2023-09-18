@@ -4,12 +4,10 @@ import { z } from "zod";
 import { processRecordsFromFiles } from "../../record-processing/process-records-from-files";
 
 // `File` is not supported in Node so `Blob` is used
-const allowedFileTypes = ["text/csv", "text/xml"];
-const fileSchema = z.custom<Blob>(
-  (maybeFile) =>
-    maybeFile instanceof Blob && allowedFileTypes.includes(maybeFile.type),
-  "Incorrect file type"
-);
+const allowedFileTypes = ["text/csv", "text/xml", "application/xml"];
+const fileSchema = z.custom<Blob>((maybeFile) => {
+  return maybeFile instanceof Blob && allowedFileTypes.includes(maybeFile.type);
+}, "Incorrect file type");
 
 const uploadedFilesSchema = z.object({
   records: z.array(fileSchema),

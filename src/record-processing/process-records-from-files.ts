@@ -21,6 +21,7 @@ export async function processRecordsFromFiles(files: Blob[]) {
         parsedRecords = parsedRecords.concat(parsedCsv);
         break;
       case "text/xml":
+      case "application/xml":
         const parsedXml = await parseXml(fileText);
         parsedRecords = parsedRecords.concat(parsedXml);
         break;

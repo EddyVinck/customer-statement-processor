@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest"
+    "test": "vitest",
+    "e2e": "playwright test --project=chromium",
+    "e2e:ui": "playwright test --ui --project=chromium"
   },
   "keywords": [],
   "author": "Eddy Vinck",
@@ -25,6 +27,7 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.38.0",
     "@types/big.js": "^6.2.0",
     "@types/node": "20.6.2",
     "@types/react": "18.2.21",

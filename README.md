@@ -2,7 +2,7 @@
 
 # Customer Statement Processor
 
-Customer Statement Processor is a Next.js application built using the new Next.js `app/` router. This project served as an experiment for me to compare it to the traditional `pages/` router.
+Customer Statement Processor is a Next.js application built using the new Next.js `app/` router. This project served as an experiment for me to compare it to the traditional `pages/` router. I also took the opportunity to try out Vitest for unit tests and Playwright for end-to-end tests.
 
 It utilizes both client and server components, and it has the currently still experimental server actions enabled.
 
@@ -42,7 +42,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Running the tests
+## Tests
+
+### Unit tests
 
 The project has tests in the `src/tests` directory.
 
@@ -50,4 +52,24 @@ To run the tests, run:
 
 ```bash
 npm test
+```
+
+### End-to-end tests
+
+First, make sure your development server is running on http://localhost:3000:
+
+```bash
+npm run dev
+```
+
+And then run:
+
+```bash
+npm run e2e
+```
+
+And to open the browser for the end-to-end tests:
+
+```bash
+npm run e2e:ui
 ```
